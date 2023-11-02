@@ -1,0 +1,45 @@
+body {
+    background-color: #80d2a1;
+}
+
+.container {
+    padding: 15px;
+}
+
+.main-container {
+    display: flex;
+    flex-direction: row;
+}
+
+.smile-container {
+    background-color: #80d2a1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100px;
+    padding: 15px;
+}
+
+.voiceBtn {
+    width: 120px;
+    height: 30px;
+}
+
+.smile-block {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.resultBtn {
+    display: flex;
+    width: 150px;
+    height: 30px;
+    justify-content: center;
+    align-items: center;
+
+    margin: 0px auto;
+}
