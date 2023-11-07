@@ -1,0 +1,42 @@
+body {
+    background-color: #b6ffbc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.main-container {
+    background-color: #ffa6a6;
+    width:500px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    margin: 20px;
+    flex-direction: column;
+    border-radius: 10px;
+}
+
+
+.input-container button{
+    margin-left: 5px;
+}
+
+.todo-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.todo-item {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.cross {
+    margin-left: 5px;
+    font-size: 10px;
+}
