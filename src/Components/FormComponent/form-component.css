@@ -1,0 +1,34 @@
+.main-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form {
+    background-color: #ffe8bb;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 10px;
+    border-radius: 10px;
+    margin-top: 10px;
+}
+
+.form h1 {
+    font-size: 20px;
+    text-align: center;
+}
+
+.form-items {
+    margin-top: 5px;
+}
+
+.form-items span {
+    margin-right: 10px;
+}
+
+.signBtn {
+    margin-top: 10px;
+    width: 100px;
+}

@@ -3,18 +3,12 @@ import './App.css';
 import React from "react";
 import ReactDOM from 'react-dom';
 
-import Header from './Components/Header/Header'
-import CentralBlock from './Components/CentralBlock/CentralBlock'
-import LeftNavigation from './Components/LeftNavigation/LeftNavigation'
+import FormComponent from "./Components/FormComponent/FormComponent";
 
 function App() {
   return (
       <div>
-        <Header />
-        <div className="App">
-            <LeftNavigation />
-          <CentralBlock />
-        </div>
+          <FormComponent />
       </div>
   );
 }
