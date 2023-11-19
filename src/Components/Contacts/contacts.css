@@ -1,0 +1,62 @@
+.main-container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin: 0px auto;
+    width: 800px;
+    background-color: #f1ffc6;
+}
+
+.contacts-div {
+    padding: 20px;
+    margin-top: 10px;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+}
+
+.title {
+    text-align: center;
+}
+
+.contacts-table {
+    border: 2px solid black;
+}
+
+.addBtn {
+    display: flex;
+    width: 120px;
+    justify-content: center;
+    align-content: center;
+    margin: 0px auto;
+    margin-top: 10px;
+}
+
+.form-container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin: 0px auto;
+}
+
+.form-field {
+    margin-top: 10px;
+}
+
+.form-field label {
+    margin-right: 10px;
+}
+
+.form-btns {
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+.add-btn {
+    margin-right: 10px;
+}
+
+
