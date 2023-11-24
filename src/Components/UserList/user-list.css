@@ -1,0 +1,32 @@
+.main-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 10px auto 0;
+    width: 300px;
+    height: 100%;
+    padding: 10px;
+    background-color: #c4ffff;
+    border-radius: 10px;
+}
+
+.users-list {
+    list-style-type: none;
+}
+
+.users-item {
+    margin-top: 20px;
+}
+
+.link {
+    border: 2px solid black;
+    border-radius: 5px;
+    text-decoration: none;
+    padding: 5px;
+    color: black;
+}
+
+.link:hover {
+    color: olivedrab;
+}

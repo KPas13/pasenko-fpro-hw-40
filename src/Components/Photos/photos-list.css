@@ -1,0 +1,27 @@
+.main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 10px auto 0;
+    width: 1000px;
+    height: 100%;
+    padding: 10px;
+    background-color: #c4ffff;
+    border-radius: 10px;
+}
+
+.photos-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-gap: 10px;
+    list-style-type: none;
+}
+
+.photos-item {
+    margin-top: 10px;
+}
+
+.link {
+    margin-left: 10px;
+}

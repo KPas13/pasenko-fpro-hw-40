@@ -1,22 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
-import React from "react";
-import ReactDOM from 'react-dom';
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
-import Header from './Components/Header/Header'
-import CentralBlock from './Components/CentralBlock/CentralBlock'
-import LeftNavigation from './Components/LeftNavigation/LeftNavigation'
+import Users from "./Components/UserList/Users";
+import Albums from "./Components/Albums/Albums";
+import Photos from "./Components/Photos/Photos";
 
-function App() {
-  return (
-      <div>
-        <Header />
-        <div className="App">
-            <LeftNavigation />
-          <CentralBlock />
-        </div>
-      </div>
-  );
-}
+const App = () => {
+    return (
+        <Router>
+            <Routes>
+                <Route path="/" element={<Users />}/>
+                <Route path="/albums/:userID" element={<Albums />} />
+                <Route path="/photos/:albumID" element={<Photos />} />
+            </Routes>
+        </Router>
+    );
+};
 
 export default App;
