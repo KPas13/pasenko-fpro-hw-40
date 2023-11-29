@@ -1,36 +1,29 @@
 import React, { useState } from 'react';
 import './todostyle.css';
 
+import { useSelector, useDispatch } from 'react-redux';
+import { addTodo, deleteToDo, statusToDo } from "../../store/actions";
+
 function ToDoFunctional() {
 
-    const [todoItem, setToDo] = useState([
-        {text: 'Buy milk', status: true },
-        {text: 'Write some code', status: false},
-        {text: 'Read a book', status: true}
-    ]);
     const [todoText, setToDoText] = useState('');
 
-    const addToDo = () => {
+    const dispatch = useDispatch();
+
+    const todoFromStore = useSelector(state => state.todo);
+    const addNewToDo = () => {
         if (todoText.trim() !== '') {
-            const newToDoList = [...todoItem, { text: todoText, status: false }];
-            setToDo(newToDoList);
+            dispatch(addTodo(todoText));
             setToDoText('');
         }
     };
 
-    const deleteToDo = (index) => {
-        const updatedToDoList = [...todoItem];
-        updatedToDoList.splice(index, 1);
-        setToDo(updatedToDoList);
+    const removeTodo = (index) => {
+        dispatch(deleteToDo(index));
     };
 
     const changeToDoState = (index) => {
-        const updatedToDoList = [...todoItem];
-        const todoToNewList = updatedToDoList[index];
-        if (todoToNewList) {
-            todoToNewList.status = !todoToNewList.status;
-            setToDo(updatedToDoList);
-        }
+        dispatch(statusToDo(index));
     };
 
     return (
@@ -41,10 +34,10 @@ function ToDoFunctional() {
                     value={todoText}
                     onChange={(event) => setToDoText(event.target.value)}
                 />
-                <button onClick={addToDo}>Add task</button>
+                <button onClick={addNewToDo}>Add task</button>
             </div>
             <div className='todo-list'>
-                {todoItem.map((item, index) => (
+                {todoFromStore.map((item, index) => (
                     <div className='todo-item' key={index}>
                         <input
                             type='checkbox'
@@ -52,7 +45,7 @@ function ToDoFunctional() {
                             onChange={() => changeToDoState(index)}
                         />
                         <span style={{ textDecoration: item.status ? 'line-through' : 'none' }}>{item.text}</span>
-                        <span className='cross' onClick={() => deleteToDo(index)}>❌</span>
+                        <span className='cross' onClick={() => removeTodo(index)}>❌</span>
                     </div>
                 ))}
             </div>
