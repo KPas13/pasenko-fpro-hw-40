@@ -1,29 +1,34 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './todostyle.css';
 
 import { useSelector, useDispatch } from 'react-redux';
-import { addTodo, deleteToDo, statusToDo } from "../../store/actions";
+
+import { addTodo, deleteTodo, updateTodo, fetchTodos } from '../../store/slices/todoSlice';
 
 function ToDoFunctional() {
-
     const [todoText, setToDoText] = useState('');
-
     const dispatch = useDispatch();
+    const todos = useSelector((state) => state.todos.todoArray);
 
-    const todoFromStore = useSelector(state => state.todo);
+    useEffect(() => {
+        dispatch(fetchTodos());
+    }, [dispatch]);
+
     const addNewToDo = () => {
         if (todoText.trim() !== '') {
-            dispatch(addTodo(todoText));
+            dispatch(addTodo({ text: todoText, complete: false }));
             setToDoText('');
+        } else {
+            console.log('Todo text cannot be empty');
         }
     };
 
     const removeTodo = (index) => {
-        dispatch(deleteToDo(index));
+        dispatch(deleteTodo(index));
     };
 
     const changeToDoState = (index) => {
-        dispatch(statusToDo(index));
+        dispatch(updateTodo(index));
     };
 
     return (
@@ -37,15 +42,19 @@ function ToDoFunctional() {
                 <button onClick={addNewToDo}>Add task</button>
             </div>
             <div className='todo-list'>
-                {todoFromStore.map((item, index) => (
+                {todos.map((item, index) => (
                     <div className='todo-item' key={index}>
                         <input
                             type='checkbox'
                             checked={item.status}
                             onChange={() => changeToDoState(index)}
                         />
-                        <span style={{ textDecoration: item.status ? 'line-through' : 'none' }}>{item.text}</span>
-                        <span className='cross' onClick={() => removeTodo(index)}>❌</span>
+                        <span style={{ textDecoration: item.status ? 'line-through' : 'none' }}>
+                            {item.title}
+                        </span>
+                        <span className='cross' onClick={() => removeTodo(index)}>
+                            ❌
+                        </span>
                     </div>
                 ))}
             </div>
